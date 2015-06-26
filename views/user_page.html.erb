@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css">
+    <title><%=self.name%></title>
+  </head>
+  <body>
+    <div class="container">
+
+      <!-- begin jumbotron -->
+      <div class="jumbotron">
+        <h1><%=self.name%></h1>
+        <h3><strong>Neopoints:</strong> <%=self.neopoints%></h3>
+      </div>
+      <!-- end jumbotron -->
+
+      <div class="row marketing">
+        
+        <!-- begin listing neopets -->
+        <div class="col-lg-6">
+          <h3>Neopets</h3>
+          <!-- first neopet -->
+          <%self.neopets.each do |pet|%>
+          <ul>
+            <li><img src="../../public/img/neopets/<%=pet.species%>.jpg"></li>
+            <ul>
+              <li><strong>Name:</strong> <%=pet.name%></li>
+              <li><strong>Mood:</strong> <%=pet.mood%></li>
+              <li><strong>Species:</strong> <%=pet.species%></li>
+              <li><strong>Strength:</strong> <%=pet.strength%></li>
+              <li><strong>Defence:</strong> <%=pet.defence%></li>
+              <li><strong>Movement:</strong> <%=pet.movement%></li>
+              <li><strong>Items:</strong></li>
+              <ul>
+                <!-- begin first neopet's items -->
+                <%pet.items.each do |thing|%>
+                <li><img src="../../public/img/items/<%=thing.type%>.jpg"></li>
+                <ul>
+                  <li><strong>Type:</strong> <%=thing.format_type%></li>
+                </ul>
+                <%end%>
+              </ul>
+            </ul>
+          </ul>
+          <%end%>
+        </div>
+        <!-- end listing neopets -->
+
+        <!-- begin listing items -->
+        <div class="col-lg-6">
+          <h3>Items</h3>
+          <ul>
+          <%self.items.each do |thing|%>
+            <li><img src="../../public/img/items/<%=thing.type%>.jpg"></li>
+            <ul>
+              <li><strong>Type:</strong><%=thing.format_type%></li>
+            </ul>
+          <%end%>
+          </ul>
+        </div>
+        <!-- end listing items -->
+
+      </div><!-- end row marketing -->
+    </div><!-- end container -->
+  </body>
+</html> 
+

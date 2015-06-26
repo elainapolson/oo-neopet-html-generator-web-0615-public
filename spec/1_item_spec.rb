@@ -11,7 +11,6 @@ describe "Item" do
       expect(item_contents.scan(/@type = get_type/).length).to eq 1
     end
   end
-
   describe "#type" do
     it "knows its type" do
       expect { item.type }.to_not raise_error
